@@ -1,0 +1,27 @@
+name: Deploy plugin to Production
+
+concurrency: production
+
+on:
+    workflow_dispatch:
+    workflow_run:
+        workflows: ['Static Linting']
+        types:
+            - completed
+
+jobs:
+    Deploy:
+        name: FTP-Deploy-Action
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  fetch-depth: 2
+            - name: FTP-Deploy-Action
+              uses: Automattic/FTP-Deploy-Action@3.1.2
+              with:
+                  ftp-server: sftp://sftp.wp.com/htdocs/wp-content/plugins/custom-plugin/
+                  ftp-username: ${{ secrets.PROD_SFTP_USER }}
+                  ftp-password: ${{ secrets.PROD_SFTP_PASSWORD }}
+                  git-ftp-args: --insecure
