@@ -1,1 +1,4 @@
-const test = 'Hello World';
+function test() {
+	return 'Hello World';
+}
+test();
