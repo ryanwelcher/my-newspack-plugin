@@ -41,7 +41,7 @@ jobs:
               run: composer install --no-dev --optimize-autoloader
 
             - name: Make release folder
-              run: mkdir ./custom-plugin/
+              run: mkdir ./custom-plugin
 
             - name: FTP-Deploy-Action
               uses: Automattic/FTP-Deploy-Action@3.1.2
@@ -49,4 +49,5 @@ jobs:
                   ftp-server: sftp://sftp.wp.com/htdocs/wp-content/plugins/custom-plugin
                   ftp-username: ${{ secrets.STAGING_SFTP_USER }}
                   ftp-password: ${{ secrets.STAGING_SFTP_PASSWORD }}
+                  local-dir: ./custom-plugin
                   git-ftp-args: --insecure
