@@ -9,8 +9,8 @@ on:
             - staging
 
 jobs:
-    Linting:
-        # uses: ./.github/workflows/linting.yml
+    # Linting:
+    #     uses: ./.github/workflows/linting.yml
 
     Deploy:
         name: FTP-Deploy-Action
