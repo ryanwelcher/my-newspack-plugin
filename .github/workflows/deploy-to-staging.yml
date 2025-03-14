@@ -46,4 +46,4 @@ jobs:
                   ftp-server: sftp://sftp.wp.com/htdocs/wp-content/plugins/custom-plugin/
                   ftp-username: ${{ secrets.STAGING_SFTP_USER }}
                   ftp-password: ${{ secrets.STAGING_SFTP_PASSWORD }}
-                  git-ftp-args: --insecure --remote-root-path=/htdocs/wp-content/plugins/custom-plugin/
+                  git-ftp-args: --insecure
