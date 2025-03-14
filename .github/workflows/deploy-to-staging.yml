@@ -43,7 +43,7 @@ jobs:
             - name: FTP-Deploy-Action
               uses: Automattic/FTP-Deploy-Action@3.1.2
               with:
-                  ftp-server: sftp://sftp.wp.com/htdocs/wp-content/plugins/custom-plugin/
+                  ftp-server: sftp://sftp.wp.com
                   ftp-username: ${{ secrets.STAGING_SFTP_USER }}
                   ftp-password: ${{ secrets.STAGING_SFTP_PASSWORD }}
-                  git-ftp-args: --insecure
+                  git-ftp-args: --insecure --remote-root-path=/htdocs/wp-content/plugins/my-newspack-plugin/
