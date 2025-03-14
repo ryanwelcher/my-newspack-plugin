@@ -40,6 +40,9 @@ jobs:
             - name: Install Composer dependencies
               run: composer install --no-dev --optimize-autoloader
 
+            - name: Make release folder
+              run: mkdir ./custom-plugin/
+
             - name: FTP-Deploy-Action
               uses: Automattic/FTP-Deploy-Action@3.1.2
               with:
